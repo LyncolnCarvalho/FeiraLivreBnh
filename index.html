@@ -467,7 +467,7 @@
         }
 
         // CONFIRMAÇÃO DE DIÁLOGO MODAL PERSONALIZADO
-        function mostrarConfirmacao(titulo, mensagem, callbackOK) {
+        function mostrarConfirmacao(titulo, message, callbackOK) {
             const modal = document.getElementById('confirm-modal');
             const titleEl = document.getElementById('confirm-title');
             const msgEl = document.getElementById('confirm-message');
@@ -475,7 +475,7 @@
             const btnOK = document.getElementById('confirm-btn-ok');
 
             titleEl.innerText = titulo;
-            msgEl.innerText = mensagem;
+            msgEl.innerText = message;
             modal.classList.remove('hidden');
 
             const novoBtnCancel = btnCancel.cloneNode(true);
@@ -514,10 +514,12 @@
                 });
                 
                 if (!response.ok) {
-                    const err = await response.json();
+                    const err = await response.json().catch(() => ({}));
                     console.error("Erro Supabase Admins:", err);
                     if (err.message && err.message.includes("relation \"public.admins\" does not exist")) {
                         showToast("A tabela 'admins' não existe no Supabase. Execute o script SQL no SQL Editor do Supabase!", "error");
+                    } else if (err.code === "42501") {
+                        showToast("Erro de Segurança (RLS) na tabela 'admins'. Desative o RLS no SQL Editor!", "error");
                     } else {
                         showToast("Erro do Supabase: " + (err.message || response.statusText), "error");
                     }
@@ -543,10 +545,12 @@
                 });
                 
                 if (!response.ok) {
-                    const err = await response.json();
+                    const err = await response.json().catch(() => ({}));
                     console.error("Erro Supabase Feirantes:", err);
                     if (err.message && err.message.includes("relation \"public.feirantes\" does not exist")) {
                         showToast("A tabela 'feirantes' não existe no Supabase. Execute o script SQL no SQL Editor!", "error");
+                    } else if (err.code === "42501") {
+                        showToast("Erro de Segurança (RLS) ao ler feirantes. Desative o RLS no SQL Editor!", "error");
                     }
                     return dbFeirantes; // Fallback para LocalStorage
                 }
@@ -565,7 +569,7 @@
             const emailInput = document.getElementById('login-email').value.trim().toLowerCase();
             const senhaInput = document.getElementById('login-senha').value;
 
-            showToast("Verificando autenticação...", "info");
+            showToast("A verificar credenciais...", "info");
             
             let admins = [];
             let usandoFallback = false;
@@ -660,6 +664,7 @@
             input.value = value;
         }
 
+        // FUNÇÕES DE MÁSCARAS DE TELEFONE
         function mascaraTelefone(input) {
             let value = input.value.replace(/\D/g, "");
             if (value.length > 10) {
@@ -714,7 +719,9 @@
                 if (response.ok) {
                     return `${SUPABASE_URL}/storage/v1/object/public/fotos-feirantes/${fileName}`;
                 } else {
-                    showToast("Erro ao fazer upload da imagem no Storage Bucket. Verifique as Políticas do Storage!", "error");
+                    const err = await response.json().catch(() => ({}));
+                    console.error("Erro upload:", err);
+                    showToast("Erro ao fazer upload da imagem no Storage: " + (err.message || "Verifique as Políticas do Storage!"), "error");
                     return null;
                 }
             } catch (e) {
@@ -772,9 +779,14 @@
             };
 
             // Se o Supabase estiver off-line ou a tabela não existir, salvar localmente no LocalStorage
-            const supabaseFeiranteOnline = await fetch(`${SUPABASE_URL}/rest/v1/feirantes?select=id&limit=1`, {
-                headers: { "apikey": SUPABASE_ANON_KEY }
-            });
+            let supabaseFeiranteOnline = { ok: false };
+            try {
+                supabaseFeiranteOnline = await fetch(`${SUPABASE_URL}/rest/v1/feirantes?select=id&limit=1`, {
+                    headers: { "apikey": SUPABASE_ANON_KEY }
+                });
+            } catch (err) {
+                console.error("Erro ao verificar status da tabela feirantes:", err);
+            }
 
             if (supabaseFeiranteOnline.ok) {
                 try {
@@ -791,8 +803,20 @@
 
                     if (response.ok) {
                         showToast("Feirante cadastrado com sucesso no Supabase!", "success");
+                        document.getElementById('feirante-form').reset();
+                        base64Foto = "";
+                        imgArquivoSelecionado = null;
+                        document.getElementById('preview-container').classList.add('hidden');
+                        document.getElementById('upload-prompt').classList.remove('hidden');
+                        await carregarPainel();
                     } else {
-                        showToast("Erro ao salvar dados no Supabase.", "error");
+                        const errorDetails = await response.json().catch(() => ({}));
+                        console.error("Erro insert Supabase:", errorDetails);
+                        if (errorDetails.code === "42501") {
+                            showToast("Bloqueio de Segurança (RLS) ativo! Execute o comando SQL para liberar a inserção.", "error");
+                        } else {
+                            showToast("Erro ao salvar: " + (errorDetails.message || errorDetails.details || "Erro interno"), "error");
+                        }
                     }
                 } catch (e) {
                     showToast("Falha ao se conectar com a API de dados do Supabase.", "error");
@@ -802,15 +826,15 @@
                 novoFeirante.id = Date.now().toString();
                 dbFeirantes.unshift(novoFeirante);
                 localStorage.setItem('bnh_feirantes', JSON.stringify(dbFeirantes));
-                showToast("Tabela não encontrada. Feirante salvo no navegador localmente!", "info");
+                showToast("Erro no banco ou Tabela com RLS ativa. Salvando localmente no navegador!", "info");
+                
+                document.getElementById('feirante-form').reset();
+                base64Foto = "";
+                imgArquivoSelecionado = null;
+                document.getElementById('preview-container').classList.add('hidden');
+                document.getElementById('upload-prompt').classList.remove('hidden');
+                await carregarPainel();
             }
-
-            document.getElementById('feirante-form').reset();
-            base64Foto = "";
-            imgArquivoSelecionado = null;
-            document.getElementById('preview-container').classList.add('hidden');
-            document.getElementById('upload-prompt').classList.remove('hidden');
-            await carregarPainel();
 
             btnSubmit.disabled = false;
             btnSubmit.innerHTML = `<i class="fa-solid fa-floppy-disk"></i> Salvar Registro do Feirante`;
@@ -839,10 +863,15 @@
                     if (responseOn.ok) {
                         showToast("Feirante excluído com sucesso da nuvem.", "info");
                     } else {
-                        // Deleta do backup local
-                        dbFeirantes = dbFeirantes.filter(f => f.id !== id);
-                        localStorage.setItem('bnh_feirantes', JSON.stringify(dbFeirantes));
-                        showToast("Registro local removido.", "info");
+                        const err = await responseOn.json().catch(() => ({}));
+                        if (err.code === "42501") {
+                            showToast("Exclusão bloqueada pelo RLS no Supabase. Libere as permissões SQL!", "error");
+                        } else {
+                            // Deleta do backup local
+                            dbFeirantes = dbFeirantes.filter(f => f.id !== id);
+                            localStorage.setItem('bnh_feirantes', JSON.stringify(dbFeirantes));
+                            showToast("Registro local removido.", "info");
+                        }
                     }
                     await carregarPainel();
                 }
@@ -961,7 +990,12 @@
                     document.getElementById('admin-form').reset();
                     await carregarPainel();
                 } else {
-                    showToast("Erro ao salvar administrador no Supabase.", "error");
+                    const err = await response.json().catch(() => ({}));
+                    if (err.code === "42501") {
+                        showToast("Bloqueio RLS ativo na tabela 'admins'. Desative no SQL Editor!", "error");
+                    } else {
+                        showToast("Erro ao criar admin no Supabase: " + (err.message || "Erro interno"), "error");
+                    }
                 }
             } catch (e) {
                 showToast("Erro de rede ao salvar operador.", "error");
@@ -995,7 +1029,12 @@
                             showToast("Operador administrador excluído.", "info");
                             await carregarPainel();
                         } else {
-                            showToast("Erro ao processar exclusão no Supabase.", "error");
+                            const err = await response.json().catch(() => ({}));
+                            if (err.code === "42501") {
+                                showToast("Remoção bloqueada pelo RLS da tabela 'admins' no Supabase.", "error");
+                            } else {
+                                showToast("Erro ao processar exclusão no Supabase.", "error");
+                            }
                         }
                     } catch (e) {
                         showToast("Falha de conexão ao remover operador.", "error");
@@ -1058,6 +1097,7 @@
             }, 50);
         }
 
+        // FECHAR O POPUP DO CRACHÁ
         function fecharFicha() {
             document.getElementById('ficha-modal-content').classList.remove('scale-100');
             document.getElementById('ficha-modal-content').classList.add('scale-95');
