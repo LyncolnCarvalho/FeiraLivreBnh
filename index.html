@@ -45,7 +45,7 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- TELA DE LOGIN (SESSÃO INICIAL) -->
+    <!-- TELA DE LOGIN (SESSÃO INICIAL - LIMPA) -->
     <!-- ========================================== -->
     <div id="login-screen" class="flex-grow flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl shadow-xl border border-slate-100 max-w-md w-full p-8 transition-all duration-300 transform hover:scale-[1.01]">
@@ -84,10 +84,9 @@
                 </button>
             </form>
 
-            <div class="mt-6 pt-4 border-t border-slate-100 text-center text-xs text-slate-400">
-                <p class="font-bold text-slate-500 uppercase tracking-wider mb-2"><i class="fa-solid fa-lock mr-1"></i> Contas de Acesso:</p>
-                <p>lyncoln@feira.com (Senha: 78033927Lc@)</p>
-                <p class="mt-0.5">luiz@feira.com (Senha: 12345678)</p>
+            <!-- Rodapé interno seguro sem exibição pública de credenciais -->
+            <div class="mt-6 pt-4 border-t border-slate-100 text-center">
+                <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider"><i class="fa-solid fa-shield-halved mr-1"></i> Acesso Restrito Autorizado</span>
             </div>
         </div>
     </div>
@@ -1097,7 +1096,6 @@
             }, 50);
         }
 
-        // FECHAR O POPUP DO CRACHÁ
         function fecharFicha() {
             document.getElementById('ficha-modal-content').classList.remove('scale-100');
             document.getElementById('ficha-modal-content').classList.add('scale-95');
