@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SisFeira - Sistema de Cadastro de Feirantes</title>
+    <title>Feira Livre BNH - Sistema de Cadastro de Feirantes</title>
     <!-- Tailwind CSS para Estilização de Alto Nível -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome para Ícones Modernos -->
@@ -47,7 +47,7 @@
                 <div class="inline-flex items-center justify-center bg-emerald-500 text-white w-16 h-16 rounded-2xl shadow-lg shadow-emerald-500/20 mb-4">
                     <i class="fa-solid fa-store text-2xl"></i>
                 </div>
-                <h1 class="text-2xl font-bold text-slate-900">SisFeira</h1>
+                <h1 class="text-2xl font-bold text-slate-900">Feira Livre BNH</h1>
                 <p class="text-slate-500 text-sm mt-1">Gestão de Feirantes & Cadastros</p>
             </div>
 
@@ -115,7 +115,7 @@
                         <i class="fa-solid fa-store text-xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-lg font-bold text-slate-900 leading-none">SisFeira</h1>
+                        <h1 class="text-lg font-bold text-slate-900 leading-none">Feira Livre BNH</h1>
                         <span class="text-xs text-slate-400">Prefeitura Municipal & Abastecimento</span>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Tipo de Barraca <span class="text-rose-500">*</span></label>
-                                <input type="text" id="form-barraca" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 focus:bg-white transition-all text-sm" placeholder="Ex: Pastel, Flores, Artesanato...">
+                                <input type="text" id="form-barraca" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 focus:bg-white transition-all text-sm" placeholder="Ex: Pastel, Flores, Hortifrúti...">
                             </div>
                         </div>
 
@@ -383,7 +383,7 @@
                             <div class="bg-slate-800 w-1"></div><div class="bg-slate-800 w-0.5"></div><div class="bg-slate-100 w-0.5"></div><div class="bg-slate-800 w-2"></div><div class="bg-slate-800 w-1"></div><div class="bg-slate-100 w-1"></div><div class="bg-slate-800 w-0.5"></div><div class="bg-slate-800 w-1.5"></div><div class="bg-slate-100 w-0.5"></div><div class="bg-slate-800 w-2"></div><div class="bg-slate-800 w-0.5"></div><div class="bg-slate-100 w-1"></div><div class="bg-slate-800 w-1"></div><div class="bg-slate-800 w-1.5"></div><div class="bg-slate-100 w-0.5"></div><div class="bg-slate-800 w-0.5"></div><div class="bg-slate-800 w-2"></div>
                         </div>
                     </div>
-                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Validação SisFeira Credenciado</span>
+                    <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Validação Feira Livre BNH Credenciado</span>
                 </div>
             </div>
 
@@ -622,6 +622,7 @@
             input.value = value;
         }
 
+        // MÁSCARA TELEFONE
         function mascaraTelefone(input) {
             let value = input.value.replace(/\D/g, "");
             if (value.length > 10) {
@@ -663,7 +664,7 @@
 
             const nome = document.getElementById('form-nome').value.trim();
             const cpf = document.getElementById('form-cpf').value.trim();
-            const tipoBarraca = document.getElementById('form-barraca').value;
+            const tipoBarraca = document.getElementById('form-barraca').value.trim();
             const telefone = document.getElementById('form-telefone').value.trim();
             const email = document.getElementById('form-email').value.trim();
 
@@ -927,7 +928,7 @@
             printWindow.document.write(`
                 <html>
                     <head>
-                        <title>Imprimir Crachá - SisFeira</title>
+                        <title>Imprimir Crachá - Feira Livre BNH</title>
                         <script src="https://cdn.tailwindcss.com"><\/script>
                         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
                         <style>
