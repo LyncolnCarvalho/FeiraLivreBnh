@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feira Livre BNH - Sistema de Cadastro</title>
+    <!-- Web App Manifest para habilitar transformação em App (PWA) -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    
+    <!-- Configurações específicas para iOS (iPhone) usando o arquivo logo.jpg.png -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FeiraBNH">
+    <link rel="apple-touch-icon" href="logo.jpg.png">
+    
     <!-- Tailwind CSS para Estilização de Alto Nível -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome para Ícones Modernos -->
@@ -54,10 +64,8 @@
     <div id="login-screen" class="flex-grow flex items-center justify-center p-4">
         <div class="bg-zinc-950/80 backdrop-blur-md rounded-2xl shadow-2xl border border-zinc-800/60 max-w-md w-full p-0 overflow-hidden transition-all duration-300 transform hover:scale-[1.01]">
             
-            <!-- Banner Vetorial de Feira (Garantia de Funcionamento 100% Offline/Online) -->
+            <!-- Banner Vetorial de Feira -->
             <div class="relative h-56 w-full overflow-hidden bg-gradient-to-b from-emerald-950/20 via-zinc-950 to-zinc-950 flex items-center justify-center border-b border-zinc-900">
-                
-                <!-- Arte Vetorial de Feira Livre em Neon -->
                 <svg viewBox="0 0 500 224" class="absolute inset-0 w-full h-full opacity-70" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <radialGradient id="neonGlow" cx="50%" cy="50%" r="50%">
@@ -73,79 +81,27 @@
                             <stop offset="100%" stop-color="#059669" />
                         </linearGradient>
                     </defs>
-
-                    <!-- Brilho Neon de Fundo -->
                     <circle cx="250" cy="100" r="160" fill="url(#neonGlow)" />
-
-                    <!-- Silhuetas de Fundo -->
                     <path d="M-50,224 L120,130 L240,180 L370,120 L550,224 Z" fill="#080808" />
                     <path d="M-10,224 L160,150 L290,195 L430,140 L520,224 Z" fill="#0c0c0c" />
-
-                    <!-- Barraca de Feira -->
-                    <!-- Postes de Apoio -->
                     <rect x="145" y="70" width="5" height="100" fill="#1f2937" rx="2" />
                     <rect x="350" y="70" width="5" height="100" fill="#1f2937" rx="2" />
-
-                    <!-- Bancada principal -->
                     <rect x="120" y="145" width="260" height="30" fill="#111827" rx="6" stroke="#1f2937" stroke-width="2"/>
-                    
-                    <!-- Prateleiras/Caixotes com Frutas Coloridas -->
-                    <!-- Caixote 1 -->
                     <rect x="140" y="122" width="65" height="23" fill="#1f1c38" rx="4" stroke="#312e81" stroke-width="1" />
-                    <!-- Maçãs Vermelhas -->
-                    <circle cx="152" cy="130" r="4.5" fill="#ef4444" />
-                    <circle cx="161" cy="128" r="4.5" fill="#ef4444" />
-                    <circle cx="170" cy="131" r="4.5" fill="#ef4444" />
-                    <circle cx="156" cy="136" r="4.5" fill="#ef4444" />
-                    <circle cx="165" cy="135" r="4.5" fill="#ef4444" />
-                    <circle cx="185" cy="133" r="4.5" fill="#ef4444" />
-                    <circle cx="192" cy="130" r="4.5" fill="#ef4444" />
-
-                    <!-- Caixote 2 -->
+                    <circle cx="152" cy="130" r="4.5" fill="#ef4444" /><circle cx="161" cy="128" r="4.5" fill="#ef4444" /><circle cx="170" cy="131" r="4.5" fill="#ef4444" /><circle cx="156" cy="136" r="4.5" fill="#ef4444" /><circle cx="165" cy="135" r="4.5" fill="#ef4444" /><circle cx="185" cy="133" r="4.5" fill="#ef4444" /><circle cx="192" cy="130" r="4.5" fill="#ef4444" />
                     <rect x="218" y="122" width="64" height="23" fill="#1f1c38" rx="4" stroke="#312e81" stroke-width="1" />
-                    <!-- Laranjas vibrantes -->
-                    <circle cx="230" cy="131" r="4.5" fill="#f97316" />
-                    <circle cx="239" cy="133" r="4.5" fill="#f97316" />
-                    <circle cx="248" cy="129" r="4.5" fill="#f97316" />
-                    <circle cx="235" cy="136" r="4.5" fill="#f97316" />
-                    <circle cx="244" cy="137" r="4.5" fill="#f97316" />
-                    <circle cx="258" cy="132" r="4.5" fill="#f97316" />
-                    <circle cx="266" cy="134" r="4.5" fill="#f97316" />
-
-                    <!-- Caixote 3 -->
+                    <circle cx="230" cy="131" r="4.5" fill="#f97316" /><circle cx="239" cy="133" r="4.5" fill="#f97316" /><circle cx="248" cy="129" r="4.5" fill="#f97316" /><circle cx="235" cy="136" r="4.5" fill="#f97316" /><circle cx="244" cy="137" r="4.5" fill="#f97316" /><circle cx="258" cy="132" r="4.5" fill="#f97316" /><circle cx="266" cy="134" r="4.5" fill="#f97316" />
                     <rect x="295" y="122" width="65" height="23" fill="#1f1c38" rx="4" stroke="#312e81" stroke-width="1" />
-                    <!-- Melancias / Frutas Verdes -->
-                    <circle cx="310" cy="131" r="5.5" fill="#10b981" />
-                    <circle cx="323" cy="130" r="5.5" fill="#10b981" />
-                    <circle cx="336" cy="132" r="5.5" fill="#10b981" />
-                    <circle cx="346" cy="130" r="5.5" fill="#10b981" />
-
-                    <!-- Cobertura do Toldo (Aba Superior) -->
+                    <circle cx="310" cy="131" r="5.5" fill="#10b981" /><circle cx="323" cy="130" r="5.5" fill="#10b981" /><circle cx="336" cy="132" r="5.5" fill="#10b981" /><circle cx="346" cy="130" r="5.5" fill="#10b981" />
                     <path d="M120,70 L380,70 L360,40 L140,40 Z" fill="url(#canopyGradient)" stroke="#10b981" stroke-width="1.5"/>
-                    <!-- Listras Esmeralda do Toldo -->
                     <path d="M150,70 L165,70 L175,40 L160,40 Z" fill="url(#accentGradient)" />
                     <path d="M210,70 L225,70 L225,40 L210,40 Z" fill="url(#accentGradient)" />
                     <path d="M270,70 L285,70 L285,40 L270,40 Z" fill="url(#accentGradient)" />
                     <path d="M330,70 L345,70 L335,40 L320,40 Z" fill="url(#accentGradient)" />
-
-                    <!-- Babado ondulado do toldo -->
                     <path d="M120,70 Q130,80 140,70 Q150,80 160,70 Q170,80 180,70 Q190,80 200,70 Q210,80 220,70 Q230,80 240,70 Q250,80 260,70 Q270,80 280,70 Q290,80 300,70 Q310,80 320,70 Q330,80 340,70 Q350,80 360,70 Q370,80 380,70" fill="none" stroke="#10b981" stroke-width="2" />
-
-                    <!-- Luzes e Estrelas Decorativas -->
-                    <g fill="#10b981" opacity="0.6">
-                        <circle cx="80" cy="50" r="1.5" />
-                        <circle cx="420" cy="80" r="2" />
-                        <circle cx="430" cy="40" r="1" />
-                        <circle cx="70" cy="110" r="1" />
-                        <circle cx="90" cy="170" r="1.5" />
-                        <circle cx="400" cy="160" r="1" />
-                    </g>
+                    <g fill="#10b981" opacity="0.6"><circle cx="80" cy="50" r="1.5" /><circle cx="420" cy="80" r="2" /><circle cx="430" cy="40" r="1" /><circle cx="70" cy="110" r="1" /><circle cx="90" cy="170" r="1.5" /><circle cx="400" cy="160" r="1" /></g>
                 </svg>
-
-                <!-- Degradê de Integração -->
                 <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
-                
-                <!-- Selo Informativo "Todos os Domingos" -->
                 <div class="absolute top-4 left-4 bg-emerald-500/20 backdrop-blur-md border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg shadow-emerald-500/20 flex items-center gap-1.5 animate-pulse">
                     <i class="fa-solid fa-calendar-days text-xs"></i>
                     <span>Todos os Domingos</span>
@@ -212,7 +168,7 @@
 
                 <div class="flex items-center gap-4 flex-wrap justify-center">
                     <nav class="flex bg-zinc-900/60 p-1 rounded-xl border border-zinc-800 text-sm" id="nav-tabs">
-                        <button onclick="switchTab('cadastro')" id="tab-btn-cadastro" class="px-4 py-2 rounded-lg font-semibold bg-zinc-800 text-white shadow-sm transition-all flex items-center gap-2">
+                        <button onclick="switchTab('cadastro')" id="tab-btn-cadastro" class="px-4 py-2 rounded-lg font-semibold bg-zinc-800 text-white shadow-sm flex items-center gap-2 border border-zinc-700">
                             <i class="fa-solid fa-address-card text-emerald-400"></i> Painel de Cadastros
                         </button>
                         <button onclick="switchTab('admins')" id="tab-btn-admins" class="hidden px-4 py-2 rounded-lg font-semibold text-slate-400 hover:text-white transition-all flex items-center gap-2">
@@ -236,7 +192,7 @@
             
             <div id="tab-cadastro" class="grid grid-cols-1 lg:grid-cols-12 gap-6 transition-all">
                 
-                <!-- Coluna Formulário de Cadastro e Edição -->
+                <!-- Coluna Formulário -->
                 <div class="lg:col-span-5 bg-zinc-950/40 border border-zinc-900 rounded-2xl p-6 h-fit shadow-xl" id="form-container">
                     <div class="flex items-center gap-2 mb-6 pb-4 border-b border-zinc-900">
                         <i class="fa-solid fa-circle-plus text-emerald-400 text-lg" id="form-icon"></i>
@@ -293,7 +249,6 @@
                             </div>
                         </div>
 
-                        <!-- Botões de Ação do Form -->
                         <div class="flex flex-col sm:flex-row gap-3 mt-4">
                             <button type="submit" id="btn-submit-feirante" class="flex-grow bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-emerald-600/10 transition-all text-sm flex items-center justify-center gap-2 active:scale-[0.98]">
                                 <i class="fa-solid fa-floppy-disk"></i> <span id="btn-submit-text">Salvar Registro</span>
@@ -320,11 +275,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                         <div class="relative">
                             <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
-                            <input type="text" id="search-input" oninput="filtrarFeirantes()" class="w-full pl-10 pr-4 py-2 bg-zinc-900/40 border border-zinc-800 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/10 focus:border-emerald-500 text-sm" placeholder="Buscar por nome, CPF ou e-mail...">
+                            <input type="text" id="search-input" oninput="filtrarFeirantes()" class="w-full pl-10 pr-4 py-2 bg-zinc-900/40 border border-zinc-800 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm" placeholder="Buscar por nome, CPF ou e-mail...">
                         </div>
                         <div class="relative">
-                            <i class="fa-solid fa-store absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
-                            <input type="text" id="search-barraca" oninput="filtrarFeirantes()" class="w-full pl-10 pr-4 py-2 bg-zinc-900/40 border border-zinc-800 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/10 focus:border-emerald-500 text-sm" placeholder="Buscar por tipo de barraca...">
+                            <i class="fa-solid fa-store absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                            <input type="text" id="search-barraca" oninput="filtrarFeirantes()" class="w-full pl-10 pr-4 py-2 bg-zinc-900/40 border border-zinc-800 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm" placeholder="Buscar por tipo de barraca...">
                         </div>
                     </div>
 
@@ -403,7 +358,7 @@
             </div>
             <div class="flex gap-3">
                 <button id="confirm-btn-cancel" class="flex-1 bg-zinc-900 hover:bg-zinc-800 text-slate-300 font-semibold py-2 rounded-xl text-sm transition-colors border border-zinc-800">Cancelar</button>
-                <button id="confirm-btn-ok" class="flex-1 bg-rose-600 hover:bg-rose-500 text-white font-bold py-2 rounded-xl text-sm transition-all shadow-md shadow-rose-600/10">Confirmar</button>
+                <button id="confirm-btn-ok" class="flex-1 bg-rose-600 hover:bg-rose-700 text-white font-bold py-2 rounded-xl text-sm transition-all shadow-md shadow-rose-600/10">Confirmar</button>
             </div>
         </div>
     </div>
@@ -469,9 +424,17 @@
         const SUPABASE_URL = "https://zewvabgnbdjcpqzegpjf.supabase.co"; 
         const SUPABASE_ANON_KEY = "sb_publishable_axtAZmYn8RuGV_EElL3Fcg_CVJJAFyM";
 
-        // Estado do Formulário (Null = Modo Cadastro, ID = Modo Edição)
-        let idFeiranteEditando = null;
+        // Registrar Service Worker Simples de forma segura sem usar Blob URL
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Registrar sw.js relativo de forma limpa. Se falhar por bloqueio de sandbox, captura o erro e não quebra o app.
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log("PWA Habilitado com Sucesso!", reg.scope))
+                    .catch(err => console.warn("Service Worker ignorado no ambiente atual (normal em iframes de teste):", err));
+            });
+        }
 
+        let idFeiranteEditando = null;
         let currentUser = null;
         let cacheFeirantes = [];
         let base64Foto = ""; 
@@ -571,7 +534,7 @@
         async function fazerLogin(event) {
             event.preventDefault();
             const emailInput = document.getElementById('login-email').value.trim().toLowerCase();
-            const senhaInput = document.getElementById('login-senha').value;
+            const AutoSenha = document.getElementById('login-senha').value;
             showToast("Verificando acesso...", "info");
             
             let admins = [];
@@ -583,7 +546,7 @@
                 usandoFallback = true;
             }
 
-            const contaEncontrada = admins.find(adm => adm.email.toLowerCase() === emailInput && adm.senha === senhaInput);
+            const contaEncontrada = admins.find(adm => adm.email.toLowerCase() === emailInput && adm.senha === AutoSenha);
 
             if (contaEncontrada) {
                 currentUser = { id: contaEncontrada.id, role: contaEncontrada.role, name: contaEncontrada.nome, email: contaEncontrada.email };
@@ -686,17 +649,14 @@
         function carregarDadosParaEdicao(id) {
             const feirante = cacheFeirantes.find(f => f.id.toString() === id.toString());
             if (!feirante) return;
-
             idFeiranteEditando = feirante.id;
 
-            // Preencher campos
             document.getElementById('form-nome').value = feirante.nome;
             document.getElementById('form-cpf').value = feirante.cpf;
             document.getElementById('form-barraca').value = feirante.tipoBarraca;
             document.getElementById('form-telefone').value = feirante.telefone === "Não informado" ? "" : feirante.telefone;
             document.getElementById('form-email').value = feirante.email === "Não informado" ? "" : feirante.email;
 
-            // Preview de foto cadastrada com fallback inteligente
             if (feirante.foto) {
                 const img = document.getElementById('img-preview');
                 img.onerror = function() {
@@ -711,13 +671,10 @@
                 document.getElementById('upload-prompt').classList.remove('hidden');
             }
 
-            // Alterar Layout do Form para Modo Edição
             document.getElementById('form-title-text').innerText = "Editar Cadastro do Feirante";
             document.getElementById('form-icon').className = "fa-solid fa-pen-to-square text-amber-400 text-lg";
             document.getElementById('btn-submit-text').innerText = "Salvar Alterações";
             document.getElementById('btn-cancelar-edit').classList.remove('hidden');
-
-            // Scroll suave até o formulário (útil no mobile)
             document.getElementById('form-container').scrollIntoView({ behavior: 'smooth' });
         }
 
@@ -725,12 +682,9 @@
         function cancelarEdicao() {
             idFeiranteEditando = null;
             document.getElementById('feirante-form').reset();
-            base64Foto = "";
-            imgArquivoSelecionado = null;
+            base64Foto = ""; imgArquivoSelecionado = null;
             document.getElementById('preview-container').classList.add('hidden');
             document.getElementById('upload-prompt').classList.remove('hidden');
-
-            // Voltar Layout do Form para Modo Cadastro
             document.getElementById('form-title-text').innerText = "Cadastrar Novo Feirante";
             document.getElementById('form-icon').className = "fa-solid fa-circle-plus text-emerald-400 text-lg";
             document.getElementById('btn-submit-text').innerText = "Salvar Registro";
@@ -740,8 +694,7 @@
         async function salvarFeirante(event) {
             event.preventDefault();
             const btn = document.getElementById('btn-submit-feirante');
-            btn.disabled = true; 
-            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Salvando...`;
+            btn.disabled = true; btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Salvando...`;
 
             const nome = document.getElementById('form-nome').value.trim();
             const cpf = document.getElementById('form-cpf').value.trim();
@@ -750,123 +703,56 @@
             const email = document.getElementById('form-email').value.trim();
 
             const feirantesAtuais = await fetchFeirantes();
-            
-            // Validar CPF Duplicado (Ignorar validação caso o CPF seja o do próprio editando)
             const cpfExistente = feirantesAtuais.find(f => f.cpf === cpf);
-            if (cpfExistente) {
-                if (!idFeiranteEditando || idFeiranteEditando.toString() !== cpfExistente.id.toString()) {
-                    showToast("CPF já cadastrado.", "error");
-                    btn.disabled = false; 
-                    btn.innerHTML = `<i class="fa-solid fa-floppy-disk"></i> <span id="btn-submit-text">${idFeiranteEditando ? 'Salvar Alterações' : 'Salvar Registro'}</span>`;
-                    return;
-                }
+            if (cpfExistente && (!idFeiranteEditando || idFeiranteEditando.toString() !== cpfExistente.id.toString())) {
+                showToast("CPF já cadastrado.", "error");
+                btn.disabled = false; btn.innerHTML = `<i class="fa-solid fa-floppy-disk"></i> <span id="btn-submit-text">${idFeiranteEditando ? 'Salvar Alterações' : 'Salvar Registro'}</span>`;
+                return;
             }
 
-            // Preservar a foto antiga em caso de edição sem re-upload
-            let linkFoto = "";
-            if (idFeiranteEditando) {
-                const feiranteAtual = feirantesAtuais.find(f => f.id.toString() === idFeiranteEditando.toString());
-                linkFoto = feiranteAtual ? feiranteAtual.foto : "";
-            }
-
+            let linkFoto = idFeiranteEditando ? (feirantesAtuais.find(f => f.id.toString() === idFeiranteEditando.toString())?.foto || "") : "";
             if (imgArquivoSelecionado) {
                 showToast("Enviando foto para a nuvem...", "info");
                 const novaFoto = await uploadFotoSupabase(imgArquivoSelecionado);
-                if (!novaFoto) { 
-                    btn.disabled = false; 
-                    btn.innerHTML = `<i class="fa-solid fa-floppy-disk"></i> <span id="btn-submit-text">${idFeiranteEditando ? 'Salvar Alterações' : 'Salvar Registro'}</span>`; 
-                    return; 
-                }
+                if (!novaFoto) { btn.disabled = false; btn.innerHTML = `<i class="fa-solid fa-floppy-disk"></i> <span id="btn-submit-text">${idFeiranteEditando ? 'Salvar Alterações' : 'Salvar Registro'}</span>`; return; }
                 linkFoto = novaFoto;
             }
 
             const dadosFeirante = { nome, cpf, tipoBarraca, telefone: telefone || "Não informado", email: email || "Não informado", foto: linkFoto || "" };
-
             let online = { ok: false };
             try { online = await fetch(`${SUPABASE_URL}/rest/v1/feirantes?select=id&limit=1`, { headers: { "apikey": SUPABASE_ANON_KEY } }); } catch(e){}
 
             if (online.ok) {
                 try {
-                    let r;
-                    if (idFeiranteEditando) {
-                        // REQUISIÇÃO DE EDIÇÃO (PATCH)
-                        r = await fetch(`${SUPABASE_URL}/rest/v1/feirantes?id=eq.${idFeiranteEditando}`, {
-                            method: 'PATCH',
-                            headers: { 
-                                "apikey": SUPABASE_ANON_KEY, 
-                                "Authorization": `Bearer ${SUPABASE_ANON_KEY}`, 
-                                "Content-Type": "application/json", 
-                                "Prefer": "return=minimal" 
-                            },
-                            body: JSON.stringify(dadosFeirante)
-                        });
-                    } else {
-                        // REQUISIÇÃO DE CADASTRO (POST)
-                        r = await fetch(`${SUPABASE_URL}/rest/v1/feirantes`, {
-                            method: 'POST',
-                            headers: { 
-                                "apikey": SUPABASE_ANON_KEY, 
-                                "Authorization": `Bearer ${SUPABASE_ANON_KEY}`, 
-                                "Content-Type": "application/json", 
-                                "Prefer": "return=minimal" 
-                            },
-                            body: JSON.stringify(dadosFeirante)
-                        });
-                    }
+                    let r = idFeiranteEditando 
+                        ? await fetch(`${SUPABASE_URL}/rest/v1/feirantes?id=eq.${idFeiranteEditando}`, { method: 'PATCH', headers: { "apikey": SUPABASE_ANON_KEY, "Authorization": `Bearer ${SUPABASE_ANON_KEY}`, "Content-Type": "application/json", "Prefer": "return=minimal" }, body: JSON.stringify(dadosFeirante) })
+                        : await fetch(`${SUPABASE_URL}/rest/v1/feirantes`, { method: 'POST', headers: { "apikey": SUPABASE_ANON_KEY, "Authorization": `Bearer ${SUPABASE_ANON_KEY}`, "Content-Type": "application/json", "Prefer": "return=minimal" }, body: JSON.stringify(dadosFeirante) });
 
-                    if (r.ok) {
-                        showToast(idFeiranteEditando ? "Cadastro atualizado com sucesso!" : "Feirante cadastrado com sucesso!", "success");
-                        cancelarEdicao();
-                    } else {
-                        const err = await r.json().catch(() => ({}));
-                        if (err.code === "42501") {
-                            showToast("Bloqueio de Segurança (RLS) ativo! Execute o comando SQL para liberar.", "error");
-                        } else {
-                            showToast("Erro ao salvar: " + (err.message || "Erro interno"), "error");
-                        }
-                    }
+                    if (r.ok) { showToast(idFeiranteEditando ? "Cadastro updated!" : "Feirante cadastrado!", "success"); cancelarEdicao(); }
+                    else { const err = await r.json().catch(() => ({})); showToast(err.code === "42501" ? "Bloqueio RLS ativo." : "Erro na gravação.", "error"); }
                 } catch(e) { showToast("Erro de comunicação.", "error"); }
             } else {
-                // FALLBACK EM MEMÓRIA LOCAL EM CASO DE BANCO OFFLINE
                 if (idFeiranteEditando) {
                     const idx = dbFeirantes.findIndex(f => f.id.toString() === idFeiranteEditando.toString());
-                    if (idx !== -1) {
-                        dadosFeirante.id = idFeiranteEditando.toString();
-                        dbFeirantes[idx] = dadosFeirante;
-                        localStorage.setItem('bnh_feirantes', JSON.stringify(dbFeirantes));
-                        showToast("Atualizado localmente no navegador (Banco offline).", "info");
-                    }
-                } else {
-                    dadosFeirante.id = Date.now().toString();
-                    dbFeirantes.unshift(dadosFeirante);
-                    localStorage.setItem('bnh_feirantes', JSON.stringify(dbFeirantes));
-                    showToast("Salvo localmente no navegador (Banco offline).", "info");
-                }
+                    if (idx !== -1) { dadosFeirante.id = idFeiranteEditando.toString(); dbFeirantes[idx] = dadosFeirante; }
+                } else { dadosFeirante.id = Date.now().toString(); dbFeirantes.unshift(dadosFeirante); }
+                localStorage.setItem('bnh_feirantes', JSON.stringify(dbFeirantes));
+                showToast("Salvo localmente (Banco offline).", "info");
                 cancelarEdicao();
             }
 
             await carregarPainel();
-            btn.disabled = false; 
-            btn.innerHTML = `<i class="fa-solid fa-floppy-disk"></i> <span id="btn-submit-text">Salvar Registro</span>`;
+            btn.disabled = false; btn.innerHTML = `<i class="fa-solid fa-floppy-disk"></i> <span id="btn-submit-text">Salvar Registro</span>`;
         }
 
         async function deletarFeirante(id) {
-            if (currentUser.role !== 'super_admin') { showToast("Acesso restrito a administradores.", "error"); return; }
-            mostrarConfirmacao("Remover Registro", "Deseja excluir definitivamente este feirante do banco?", async () => {
-                const res = await fetch(`${SUPABASE_URL}/rest/v1/feirantes?id=eq.${id}`, {
-                    method: 'DELETE',
-                    headers: { "apikey": SUPABASE_ANON_KEY, "Authorization": `Bearer ${SUPABASE_ANON_KEY}` }
-                });
-                if (res.ok) showToast("Registro removido.", "info");
-                else {
-                    dbFeirantes = dbFeirantes.filter(f => f.id !== id);
-                    localStorage.setItem('bnh_feirantes', JSON.stringify(dbFeirantes));
-                    showToast("Registro local removido.", "info");
-                }
-                if (idFeiranteEditando && idFeiranteEditando.toString() === id.toString()) {
-                    cancelarEdicao();
-                }
+            if (currentUser.role !== 'super_admin') { showToast("Acesso restrito.", "error"); return; }
+            mostrarConfirmacao("Remover Registro", "Deseja excluir definitivamente?", async () => {
+                const res = await fetch(`${SUPABASE_URL}/rest/v1/feirantes?id=eq.${id}`, { method: 'DELETE', headers: { "apikey": SUPABASE_ANON_KEY, "Authorization": `Bearer ${SUPABASE_ANON_KEY}` } });
+                if (!res.ok) { dbFeirantes = dbFeirantes.filter(f => f.id !== id); localStorage.setItem('bnh_feirantes', JSON.stringify(dbFeirantes)); }
+                if (idFeiranteEditando && idFeiranteEditando.toString() === id.toString()) cancelarEdicao();
                 await carregarPainel();
+                showToast("Registro removido.", "info");
             });
         }
 
@@ -876,25 +762,14 @@
             if (currentUser.role === 'super_admin') renderAdminsTable();
         }
 
-        // CARREGA E CORRIGE IMAGEM DE FEIRANTES COM FALLBACK AUTOMÁTICO EM CASO DE ERRO DE ENDEREÇO
         function renderFeirantes(lista) {
             const container = document.getElementById('listagem-feirantes');
             document.getElementById('total-badge').innerText = lista.length;
-
-            if (lista.length === 0) {
-                container.innerHTML = `<div class="text-center py-12 text-zinc-600"><i class="fa-solid fa-folder-open text-4xl mb-3"></i><p class="text-sm">Nenhum feirante registrado.</p></div>`;
-                return;
-            }
-
+            if (lista.length === 0) { container.innerHTML = `<div class="text-center py-12 text-zinc-600"><i class="fa-solid fa-folder-open text-4xl mb-3"></i><p class="text-sm">Nenhum feirante registrado.</p></div>`; return; }
             container.innerHTML = "";
             lista.forEach(feirante => {
-                // Fallback dinâmico com tratamento de erros onerror
-                let avatar = feirante.foto 
-                    ? `<img src="${feirante.foto}" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\'w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 text-emerald-400 font-bold text-lg flex items-center justify-center\'>${feirante.nome.charAt(0).toUpperCase()}</div>';" class="w-12 h-12 rounded-xl object-cover border border-zinc-800">` 
-                    : `<div class="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 text-emerald-400 font-bold text-lg flex items-center justify-center">${feirante.nome.charAt(0).toUpperCase()}</div>`;
-                
+                let avatar = feirante.foto ? `<img src="${feirante.foto}" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\'w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 text-emerald-400 font-bold text-lg flex items-center justify-center\'>${feirante.nome.charAt(0).toUpperCase()}</div>';" class="w-12 h-12 rounded-xl object-cover border border-zinc-800">` : `<div class="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 text-emerald-400 font-bold text-lg flex items-center justify-center">${feirante.nome.charAt(0).toUpperCase()}</div>`;
                 const delBtn = currentUser.role === 'super_admin' ? `<button onclick="deletarFeirante('${feirante.id}')" class="p-2 text-rose-400 hover:text-white hover:bg-rose-950/40 rounded-lg border border-zinc-900 hover:border-rose-900/30 transition-all"><i class="fa-solid fa-trash-can text-sm"></i></button>` : ``;
-
                 container.innerHTML += `
                     <div class="bg-zinc-950/60 rounded-xl p-4 border border-zinc-900/80 flex flex-col sm:flex-row justify-between sm:items-center gap-4 hover:border-zinc-800 transition-all">
                         <div class="flex items-center gap-4">
@@ -906,12 +781,8 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-2 self-end sm:self-center">
-                            <button onclick="verFicha('${feirante.id}')" class="px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-slate-200 font-medium rounded-lg border border-zinc-800 transition-all text-xs flex items-center gap-1.5" title="Visualizar crachá">
-                                <i class="fa-solid fa-address-card text-emerald-400"></i> Ver Ficha
-                            </button>
-                            <button onclick="carregarDadosParaEdicao('${feirante.id}')" class="px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-slate-200 font-medium rounded-lg border border-zinc-800 transition-all text-xs flex items-center gap-1.5" title="Editar cadastro">
-                                <i class="fa-solid fa-pen-to-square text-amber-400"></i> Editar
-                            </button>
+                            <button onclick="verFicha('${feirante.id}')" class="px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-slate-200 font-medium rounded-lg border border-zinc-800 transition-all text-xs flex items-center gap-1.5"><i class="fa-solid fa-id-card text-emerald-400"></i> Ficha</button>
+                            <button onclick="carregarDadosParaEdicao('${feirante.id}')" class="px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-slate-200 font-medium rounded-lg border border-zinc-800 transition-all text-xs flex items-center gap-1.5"><i class="fa-solid fa-pen-to-square text-amber-400"></i> Editar</button>
                             ${delBtn}
                         </div>
                     </div>`;
@@ -921,34 +792,20 @@
         function filtrarFeirantes() {
             const queryBusca = document.getElementById('search-input').value.toLowerCase().trim();
             const queryBarraca = document.getElementById('search-barraca').value.toLowerCase().trim();
-            const filtrado = cacheFeirantes.filter(f => {
-                return (f.nome.toLowerCase().includes(queryBusca) || f.cpf.includes(queryBusca) || f.email.toLowerCase().includes(queryBusca)) && f.tipoBarraca.toLowerCase().includes(queryBarraca);
-            });
-            renderFeirantes(filtrado);
+            renderFeirantes(cacheFeirantes.filter(f => (f.nome.toLowerCase().includes(queryBusca) || f.cpf.includes(queryBusca) || f.email.toLowerCase().includes(queryBusca)) && f.tipoBarraca.toLowerCase().includes(queryBarraca)));
         }
 
         async function adicionarAdmin(event) {
             event.preventDefault();
             const btn = document.getElementById('btn-submit-admin');
             btn.disabled = true; btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Gravando...`;
-
             const nome = document.getElementById('admin-nome').value.trim();
             const email = document.getElementById('admin-email').value.trim();
             const senha = document.getElementById('admin-senha').value;
-
             const admins = await fetchAdmins();
-            if (Array.isArray(admins) && admins.some(a => a.email.toLowerCase() === email.toLowerCase())) {
-                showToast("Administrador já cadastrado.", "error");
-                btn.disabled = false; btn.innerHTML = `<i class="fa-solid fa-plus"></i> Adicionar Administrador`;
-                return;
-            }
-
+            if (Array.isArray(admins) && admins.some(a => a.email.toLowerCase() === email.toLowerCase())) { showToast("Admin já cadastrado.", "error"); btn.disabled = false; btn.innerHTML = `<i class="fa-solid fa-plus"></i> Adicionar Administrador`; return; }
             try {
-                const r = await fetch(`${SUPABASE_URL}/rest/v1/admins`, {
-                    method: 'POST',
-                    headers: { "apikey": SUPABASE_ANON_KEY, "Authorization": `Bearer ${SUPABASE_ANON_KEY}`, "Content-Type": "application/json" },
-                    body: JSON.stringify({ nome, email, senha, role: "admin" })
-                });
+                const r = await fetch(`${SUPABASE_URL}/rest/v1/admins`, { method: 'POST', headers: { "apikey": SUPABASE_ANON_KEY, "Authorization": `Bearer ${SUPABASE_ANON_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify({ nome, email, senha, role: "admin" }) });
                 if (r.ok) { showToast("Operador registrado!", "success"); document.getElementById('admin-form').reset(); await carregarPainel(); }
                 else showToast("Erro ao salvar admin.", "error");
             } catch (e) { showToast("Erro de rede.", "error"); }
@@ -956,15 +813,9 @@
         }
 
         async function removerAdmin(id) {
-            if (id === 'adm_super' || id === 1 || id === "1") { showToast("Usuário mestre protegido.", "error"); return; }
-            mostrarConfirmacao("Remover Operador", "Deseja excluir e banir este acesso?", async () => {
-                try {
-                    const r = await fetch(`${SUPABASE_URL}/rest/v1/admins?id=eq.${id}`, {
-                        method: 'DELETE',
-                        headers: { "apikey": SUPABASE_ANON_KEY, "Authorization": `Bearer ${SUPABASE_ANON_KEY}` }
-                    });
-                    if (r.ok) { showToast("Acesso revogado.", "info"); await carregarPainel(); }
-                } catch (e) {}
+            if (id === 'adm_super' || id === 1 || id === "1") { showToast("Mestre protegido.", "error"); return; }
+            mostrarConfirmacao("Remover Operador", "Deseja revogar o acesso?", async () => {
+                try { const r = await fetch(`${SUPABASE_URL}/rest/v1/admins?id=eq.${id}`, { method: 'DELETE', headers: { "apikey": SUPABASE_ANON_KEY, "Authorization": `Bearer ${SUPABASE_ANON_KEY}` } }); if (r.ok) { showToast("Acesso revogado.", "info"); await carregarPainel(); } } catch (e) {}
             });
         }
 
@@ -973,68 +824,35 @@
             const admins = await fetchAdmins();
             tbody.innerHTML = "";
             const lista = (Array.isArray(admins) && admins.length > 0) ? admins : mockAdmins;
-
             lista.forEach(adm => {
                 const isSuper = adm.role === 'super_admin';
                 const badge = isSuper ? `<span class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Super Admin</span>` : `<span class="bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Operador</span>`;
                 const rBtn = isSuper ? `<span class="text-xs text-zinc-600 italic">Inexcluível</span>` : `<button onclick="removerAdmin('${adm.id}')" class="text-rose-400 hover:text-white hover:bg-rose-950/40 p-1.5 px-3 rounded-lg border border-zinc-900 transition-all text-xs"><i class="fa-solid fa-user-xmark"></i> Remover</button>`;
-
-                tbody.innerHTML += `
-                    <tr class="hover:bg-zinc-900/30">
-                        <td class="p-4 font-semibold text-slate-200 border-zinc-900/60">${adm.nome}</td>
-                        <td class="p-4 text-slate-400 border-zinc-900/60">${adm.email}</td>
-                        <td class="p-4 border-zinc-900/60">${badge}</td>
-                        <td class="p-4 text-center border-zinc-900/60">${rBtn}</td>
-                    </tr>`;
+                tbody.innerHTML += `<tr class="hover:bg-zinc-900/30"><td class="p-4 font-semibold text-slate-200 border-zinc-900/60">${adm.nome}</td><td class="p-4 text-slate-400 border-zinc-900/60">${adm.email}</td><td class="p-4 border-zinc-900/60">${badge}</td><td class="p-4 text-center border-zinc-900/60">${rBtn}</td></tr>`;
             });
         }
 
         function verFicha(id) {
             const feirante = cacheFeirantes.find(f => f.id.toString() === id.toString());
             if (!feirante) return;
-            
             const modalImg = document.getElementById('ficha-img');
-            modalImg.onerror = function() {
-                this.onerror = null;
-                this.src = "https://placehold.co/150x150/0a0a0a/10b981?text=" + feirante.nome.charAt(0).toUpperCase();
-            };
-            
+            modalImg.onerror = function() { this.onerror = null; this.src = "https://placehold.co/150x150/0a0a0a/10b981?text=" + feirante.nome.charAt(0).toUpperCase(); };
             modalImg.src = feirante.foto || "https://placehold.co/150x150/0a0a0a/10b981?text=" + feirante.nome.charAt(0).toUpperCase();
             document.getElementById('ficha-nome').innerText = feirante.nome;
             document.getElementById('ficha-barraca').innerText = feirante.tipoBarraca;
             document.getElementById('ficha-cpf').innerText = feirante.cpf;
             document.getElementById('ficha-telefone').innerText = feirante.telefone;
             document.getElementById('ficha-email').innerText = feirante.email;
-
-            const modal = document.getElementById('ficha-modal');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                document.getElementById('ficha-modal-content').classList.remove('scale-95');
-                document.getElementById('ficha-modal-content').classList.add('scale-100');
-            }, 50);
+            document.getElementById('ficha-modal').classList.remove('hidden');
+            setTimeout(() => { document.getElementById('ficha-modal-content').classList.remove('scale-95'); document.getElementById('ficha-modal-content').classList.add('scale-100'); }, 50);
         }
 
-        function fecharFicha() {
-            document.getElementById('ficha-modal-content').classList.remove('scale-100');
-            document.getElementById('ficha-modal-content').classList.add('scale-95');
-            setTimeout(() => document.getElementById('ficha-modal').classList.add('hidden'), 150);
-        }
+        function fecharFicha() { document.getElementById('ficha-modal-content').classList.remove('scale-100'); document.getElementById('ficha-modal-content').classList.add('scale-95'); setTimeout(() => document.getElementById('ficha-modal').classList.add('hidden'), 150); }
 
         function imprimirFicha() {
             const content = document.getElementById('printable-area').innerHTML;
             const pWin = window.open('', '_blank', 'height=600,width=800');
-            pWin.document.write(`
-                <html>
-                    <head>
-                        <title>Imprimir Crachá</title>
-                        <script src="https://cdn.tailwindcss.com"><\/script>
-                        <style>body { font-family: 'sans-serif'; -webkit-print-color-adjust: exact; background: #fff; color: #000; }</style>
-                    </head>
-                    <body class="flex items-center justify-center min-h-screen">
-                        <div class="w-[380px] p-8 border-2 border-zinc-300 rounded-3xl text-center">${content}</div>
-                        <script>window.onload = function() { window.print(); setTimeout(function() { window.close(); }, 500); };<\/script>
-                    </body>
-                </html>`);
+            pWin.document.write(`<html><head><title>Imprimir Crachá</title><script src="https://cdn.tailwindcss.com"><\/script><style>body { font-family: 'sans-serif'; -webkit-print-color-adjust: exact; background: #fff; color: #000; }</style></head><body class="flex items-center justify-center min-h-screen"><div class="w-[380px] p-8 border-2 border-zinc-300 rounded-3xl text-center">${content}</div><script>window.onload = function() { window.print(); setTimeout(function() { window.close(); }, 500); };<\/script></body></html>`);
             pWin.document.close();
         }
     </script>
