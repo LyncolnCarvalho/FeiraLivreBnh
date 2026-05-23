@@ -49,26 +49,100 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- TELA DE LOGIN (COM IMAGEM INTELIGENTE) -->
+    <!-- TELA DE LOGIN (COM DESIGN VETORIAL INOVADOR) -->
     <!-- ========================================== -->
     <div id="login-screen" class="flex-grow flex items-center justify-center p-4">
         <div class="bg-zinc-950/80 backdrop-blur-md rounded-2xl shadow-2xl border border-zinc-800/60 max-w-md w-full p-0 overflow-hidden transition-all duration-300 transform hover:scale-[1.01]">
             
-            <!-- Banner Imagem com Fallback Elegante de Segurança -->
-            <div class="relative h-56 w-full overflow-hidden bg-zinc-950 flex items-center justify-center">
-                <img id="login-banner-img" 
-                     src="https://images.unsplash.com/photo-1543083505-590d57a69b1b?auto=format&fit=crop&q=80&w=800" 
-                     alt="Feira Livre BNH" 
-                     class="w-full h-full object-cover brightness-50 contrast-125 saturate-150 transform hover:scale-105 transition-transform duration-700"
-                     onerror="this.style.display='none'; document.getElementById('login-fallback-bg').classList.remove('hidden')">
+            <!-- Banner Vetorial de Feira (Garantia de Funcionamento 100% Offline/Online) -->
+            <div class="relative h-56 w-full overflow-hidden bg-gradient-to-b from-emerald-950/20 via-zinc-950 to-zinc-950 flex items-center justify-center border-b border-zinc-900">
                 
-                <!-- Fallback visual caso a imagem falhe ao carregar -->
-                <div id="login-fallback-bg" class="hidden absolute inset-0 bg-gradient-to-br from-emerald-950 to-zinc-950 flex flex-col items-center justify-center p-4 text-center">
-                    <i class="fa-solid fa-store text-emerald-400 text-5xl mb-2 animate-bounce"></i>
-                    <span class="text-sm font-bold text-white tracking-widest">FEIRA LIVRE BNH</span>
-                </div>
+                <!-- Arte Vetorial de Feira Livre em Neon -->
+                <svg viewBox="0 0 500 224" class="absolute inset-0 w-full h-full opacity-70" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="neonGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#10b981" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+                        </radialGradient>
+                        <linearGradient id="canopyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#064e3b" />
+                            <stop offset="100%" stop-color="#022c22" />
+                        </linearGradient>
+                        <linearGradient id="accentGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#10b981" />
+                            <stop offset="100%" stop-color="#059669" />
+                        </linearGradient>
+                    </defs>
 
-                <!-- Degradê Dark Integrador -->
+                    <!-- Brilho Neon de Fundo -->
+                    <circle cx="250" cy="100" r="160" fill="url(#neonGlow)" />
+
+                    <!-- Silhuetas de Fundo -->
+                    <path d="M-50,224 L120,130 L240,180 L370,120 L550,224 Z" fill="#080808" />
+                    <path d="M-10,224 L160,150 L290,195 L430,140 L520,224 Z" fill="#0c0c0c" />
+
+                    <!-- Barraca de Feira -->
+                    <!-- Postes de Apoio -->
+                    <rect x="145" y="70" width="5" height="100" fill="#1f2937" rx="2" />
+                    <rect x="350" y="70" width="5" height="100" fill="#1f2937" rx="2" />
+
+                    <!-- Bancada principal -->
+                    <rect x="120" y="145" width="260" height="30" fill="#111827" rx="6" stroke="#1f2937" stroke-width="2"/>
+                    
+                    <!-- Prateleiras/Caixotes com Frutas Coloridas -->
+                    <!-- Caixote 1 -->
+                    <rect x="140" y="122" width="65" height="23" fill="#1f1c38" rx="4" stroke="#312e81" stroke-width="1" />
+                    <!-- Maçãs Vermelhas -->
+                    <circle cx="152" cy="130" r="4.5" fill="#ef4444" />
+                    <circle cx="161" cy="128" r="4.5" fill="#ef4444" />
+                    <circle cx="170" cy="131" r="4.5" fill="#ef4444" />
+                    <circle cx="156" cy="136" r="4.5" fill="#ef4444" />
+                    <circle cx="165" cy="135" r="4.5" fill="#ef4444" />
+                    <circle cx="185" cy="133" r="4.5" fill="#ef4444" />
+                    <circle cx="192" cy="130" r="4.5" fill="#ef4444" />
+
+                    <!-- Caixote 2 -->
+                    <rect x="218" y="122" width="64" height="23" fill="#1f1c38" rx="4" stroke="#312e81" stroke-width="1" />
+                    <!-- Laranjas vibrantes -->
+                    <circle cx="230" cy="131" r="4.5" fill="#f97316" />
+                    <circle cx="239" cy="133" r="4.5" fill="#f97316" />
+                    <circle cx="248" cy="129" r="4.5" fill="#f97316" />
+                    <circle cx="235" cy="136" r="4.5" fill="#f97316" />
+                    <circle cx="244" cy="137" r="4.5" fill="#f97316" />
+                    <circle cx="258" cy="132" r="4.5" fill="#f97316" />
+                    <circle cx="266" cy="134" r="4.5" fill="#f97316" />
+
+                    <!-- Caixote 3 -->
+                    <rect x="295" y="122" width="65" height="23" fill="#1f1c38" rx="4" stroke="#312e81" stroke-width="1" />
+                    <!-- Melancias / Frutas Verdes -->
+                    <circle cx="310" cy="131" r="5.5" fill="#10b981" />
+                    <circle cx="323" cy="130" r="5.5" fill="#10b981" />
+                    <circle cx="336" cy="132" r="5.5" fill="#10b981" />
+                    <circle cx="346" cy="130" r="5.5" fill="#10b981" />
+
+                    <!-- Cobertura do Toldo (Aba Superior) -->
+                    <path d="M120,70 L380,70 L360,40 L140,40 Z" fill="url(#canopyGradient)" stroke="#10b981" stroke-width="1.5"/>
+                    <!-- Listras Esmeralda do Toldo -->
+                    <path d="M150,70 L165,70 L175,40 L160,40 Z" fill="url(#accentGradient)" />
+                    <path d="M210,70 L225,70 L225,40 L210,40 Z" fill="url(#accentGradient)" />
+                    <path d="M270,70 L285,70 L285,40 L270,40 Z" fill="url(#accentGradient)" />
+                    <path d="M330,70 L345,70 L335,40 L320,40 Z" fill="url(#accentGradient)" />
+
+                    <!-- Babado ondulado do toldo -->
+                    <path d="M120,70 Q130,80 140,70 Q150,80 160,70 Q170,80 180,70 Q190,80 200,70 Q210,80 220,70 Q230,80 240,70 Q250,80 260,70 Q270,80 280,70 Q290,80 300,70 Q310,80 320,70 Q330,80 340,70 Q350,80 360,70 Q370,80 380,70" fill="none" stroke="#10b981" stroke-width="2" />
+
+                    <!-- Luzes e Estrelas Decorativas -->
+                    <g fill="#10b981" opacity="0.6">
+                        <circle cx="80" cy="50" r="1.5" />
+                        <circle cx="420" cy="80" r="2" />
+                        <circle cx="430" cy="40" r="1" />
+                        <circle cx="70" cy="110" r="1" />
+                        <circle cx="90" cy="170" r="1.5" />
+                        <circle cx="400" cy="160" r="1" />
+                    </g>
+                </svg>
+
+                <!-- Degradê de Integração -->
                 <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
                 
                 <!-- Selo Informativo "Todos os Domingos" -->
@@ -204,7 +278,7 @@
                                 
                                 <div id="preview-container" class="hidden flex-col items-center gap-2">
                                     <img id="img-preview" src="#" alt="Visualização" class="w-24 h-24 object-cover rounded-xl border-2 border-emerald-500 shadow-md">
-                                    <span class="text-xs text-emerald-400 font-bold"><i class="fa-solid fa-rotate mr-1"></i> Substituir foto</span>
+                                    <span class="text-xs text-emerald-600 font-bold"><i class="fa-solid fa-rotate mr-1"></i> Substituir foto</span>
                                 </div>
 
                                 <div id="upload-prompt" class="flex flex-col items-center gap-2 py-2">
@@ -246,11 +320,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                         <div class="relative">
                             <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
-                            <input type="text" id="search-input" oninput="filtrarFeirantes()" class="w-full pl-10 pr-4 py-2 bg-zinc-900/40 border border-zinc-800 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm" placeholder="Buscar por nome, CPF ou e-mail...">
+                            <input type="text" id="search-input" oninput="filtrarFeirantes()" class="w-full pl-10 pr-4 py-2 bg-zinc-900/40 border border-zinc-800 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/10 focus:border-emerald-500 text-sm" placeholder="Buscar por nome, CPF ou e-mail...">
                         </div>
                         <div class="relative">
-                            <i class="fa-solid fa-store absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                            <input type="text" id="search-barraca" oninput="filtrarFeirantes()" class="w-full pl-10 pr-4 py-2 bg-zinc-900/40 border border-zinc-800 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm" placeholder="Buscar por tipo de barraca...">
+                            <i class="fa-solid fa-store absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                            <input type="text" id="search-barraca" oninput="filtrarFeirantes()" class="w-full pl-10 pr-4 py-2 bg-zinc-900/40 border border-zinc-800 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/10 focus:border-emerald-500 text-sm" placeholder="Buscar por tipo de barraca...">
                         </div>
                     </div>
 
@@ -321,7 +395,7 @@
     <div id="confirm-modal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 backdrop-blur-sm">
         <div class="bg-zinc-950 rounded-2xl shadow-2xl max-w-sm w-full p-6 border border-zinc-800 transform scale-95 transition-all">
             <div class="text-center">
-                <div class="inline-flex items-center justify-center bg-rose-500/10 text-rose-400 border border-rose-500/20 w-12 h-12 rounded-full mb-4">
+                <div class="inline-flex items-center justify-center bg-rose-505/10 text-rose-400 border border-rose-500/20 w-12 h-12 rounded-full mb-4">
                     <i class="fa-solid fa-triangle-exclamation text-lg"></i>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2" id="confirm-title">Confirmar Ação</h3>
